@@ -1,14 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { UrlObject } from "url";
 import { Container } from "@/components/ui/Container";
 
-const footerLinks = [
-  { label: "特徴", href: "#features" },
-  { label: "使い方", href: "#how-it-works" },
-  { label: "料金", href: "#pricing" },
-  { label: "お問い合わせ", href: "#cta" },
-  { label: "利用規約", href: "#" },
-  { label: "プライバシー", href: "#" }
+type FooterLink = {
+  label: string;
+  href: UrlObject;
+};
+
+const footerLinks: FooterLink[] = [
+  { label: "特徴", href: { pathname: "/", hash: "features" } },
+  { label: "使い方", href: { pathname: "/", hash: "how-it-works" } },
+  { label: "料金", href: { pathname: "/", hash: "pricing" } },
+  { label: "お問い合わせ", href: { pathname: "/", hash: "cta" } },
+  { label: "利用規約", href: { pathname: "/terms" } },
+  { label: "プライバシー", href: { pathname: "/privacy" } }
 ];
 
 export default function Footer() {

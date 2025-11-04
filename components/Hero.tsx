@@ -26,7 +26,10 @@ export default function Hero() {
             この仕組みで、あなたの朝は変わる。
           </p>
           <div className="mt-12">
-            <Link href="#cta" className={buttonClasses("primary", "text-lg px-10 py-4 shadow-lg hover:shadow-xl transition-shadow")}>
+            <Link
+              href={{ pathname: "/", hash: "cta" }}
+              className={buttonClasses("primary", "text-lg px-10 py-4 shadow-lg hover:shadow-xl transition-shadow")}
+            >
               今すぐ事前登録する
             </Link>
           </div>
