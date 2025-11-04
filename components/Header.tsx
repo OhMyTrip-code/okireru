@@ -28,7 +28,7 @@ export default function Header() {
         <nav aria-label="主要メニュー" className="hidden md:block">
           <ul className="flex items-center gap-8 text-sm font-medium text-slate-700">
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li key={item.label}>
                 <Link href={item.href} className="transition-colors hover:text-brand focus-visible:text-brand">
                   {item.label}
                 </Link>
