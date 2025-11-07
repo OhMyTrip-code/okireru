@@ -18,33 +18,6 @@ const features = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-    scale: 0.95
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number]
-    }
-  }
-};
-
 export default function Features() {
   return (
     <section id="features" className="border-y border-slate-100 bg-white py-20 sm:py-28">
@@ -61,20 +34,20 @@ export default function Features() {
               オキレルは派手な機能ではなく、毎朝の行動を徹底的にデザインしています。起こす、証明する、続ける。3つのステップが揃うことで、寝ぼけた意志をシステム化します。
             </p>
           </div>
-          <motion.ul
-            className="space-y-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
+          <ul className="space-y-6">
             {features.map((feature, index) => (
               <motion.li
                 key={feature.title}
-                variants={itemVariants}
-                className="group flex items-start gap-4 sm:gap-6 rounded-2xl border border-slate-100 bg-slate-50/60 p-6 transition hover:border-brand/50 hover:bg-white hover:shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.2,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="group flex items-start gap-4 sm:gap-6 rounded-2xl border border-slate-100 bg-slate-50/60 p-6 transition-shadow hover:border-brand/50 hover:bg-white hover:shadow-xl"
               >
                 <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full bg-white text-xl sm:text-2xl font-bold shadow-sm text-slate-900">
                   0{index + 1}
@@ -91,7 +64,7 @@ export default function Features() {
                 </div>
               </motion.li>
             ))}
-          </motion.ul>
+          </ul>
         </div>
       </Container>
     </section>
