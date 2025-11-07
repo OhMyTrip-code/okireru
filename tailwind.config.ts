@@ -12,20 +12,20 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#F97316",
-          light: "#FDBA74",
-          dark: "#EA580C"
+          DEFAULT: "#FFC93A",
+          light: "#FFE082",
+          dark: "#FFB300"
         }
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans]
       },
       boxShadow: {
-        highlight: "0 24px 60px rgba(249, 115, 22, 0.18)"
+        highlight: "0 24px 60px rgba(255, 201, 58, 0.18)"
       },
       backgroundImage: {
         "hero-gradient":
-          "radial-gradient(circle at top left, rgba(249,115,22,0.15), rgba(59,130,246,0.1))"
+          "radial-gradient(circle at top left, rgba(255,201,58,0.18), rgba(59,130,246,0.08))"
       }
     }
   },

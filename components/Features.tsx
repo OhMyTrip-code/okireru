@@ -3,76 +3,56 @@ import { Container } from "@/components/ui/Container";
 const features = [
   {
     title: "起こす",
-    description: "アラームと通知で徹底的に起こす。ベッドから離脱を強制します。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-        <path
-          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-          fill="currentColor"
-        />
-        <circle cx="12" cy="9" r="2" fill="white" />
-      </svg>
-    ),
-    gradient: "from-orange-500 to-red-500"
+    description: "アラームと通知で徹底的に起こす。ベッドから離脱を強制します。"
   },
   {
     title: "証明する",
-    description: "QRコードスキャンで起床を証明。ベッドから離れないと止まりません。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-        <rect x="7" y="7" width="3" height="3" fill="currentColor" />
-        <rect x="14" y="7" width="3" height="3" fill="currentColor" />
-        <rect x="7" y="14" width="3" height="3" fill="currentColor" />
-        <rect x="14" y="14" width="3" height="3" fill="currentColor" />
-      </svg>
-    ),
-    gradient: "from-blue-500 to-cyan-500"
+    description: "QRコードスキャンで起床を証明。ベッドから離れないと止まりません。"
   },
   {
     title: "続ける",
-    description: "成功すればキャッシュバック。失敗すればお金が減る。この仕組みで続けられます。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-        <path
-          d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </svg>
-    ),
-    gradient: "from-green-500 to-emerald-500"
+    description: "成功すればキャッシュバック。失敗すればお金が減る。この仕組みで続けられます。"
   }
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="bg-slate-50 py-20 sm:py-28">
+    <section id="features" className="border-y border-slate-100 bg-white py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center justify-center rounded-full bg-brand/10 px-6 py-2 text-sm font-semibold text-brand mb-6">
-            Features
+        <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+          <div className="space-y-6">
+            <p className="text-sm font-medium uppercase tracking-[0.25em] text-slate-400">Features</p>
+            <h2 className="text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">
+              3つの仕組みで
+              <br className="hidden sm:block" />
+              朝のスタートを整える
+            </h2>
+            <p className="text-base leading-7 text-slate-600">
+              オキレルは派手な機能ではなく、毎朝の行動を徹底的にデザインしています。起こす、証明する、続ける。3つのステップが揃うことで、寝ぼけた意志をシステム化します。
+            </p>
           </div>
-          <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl">
-            3つの仕組みで朝を変える
-          </h2>
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <ul className="space-y-6">
             {features.map((feature, index) => (
-              <div
+              <li
                 key={feature.title}
-                className="group relative space-y-6 rounded-3xl border-2 border-slate-200 bg-white p-8 shadow-lg transition-all hover:border-brand/50 hover:shadow-xl"
+                className="group flex items-start gap-6 rounded-2xl border border-slate-100 bg-slate-50/60 p-6 transition hover:border-brand/50 hover:bg-white"
               >
-                <div className={`mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-white shadow-lg`}>
-                  <div className="w-12 h-12">{feature.icon}</div>
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-lg font-bold shadow-sm text-slate-900">
+                  0{index + 1}
                 </div>
-                <h3 className="text-2xl font-semibold text-slate-900">{feature.title}</h3>
-                <p className="text-base leading-relaxed text-slate-600">{feature.description}</p>
-              </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-dark">
+                      0{index + 1}
+                    </span>
+                    <span className="text-sm text-slate-400">/ メソッド</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-slate-900">{feature.title}</h3>
+                  <p className="text-sm leading-7 text-slate-600">{feature.description}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </Container>
     </section>

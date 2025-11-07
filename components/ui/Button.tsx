@@ -7,8 +7,8 @@ export function buttonClasses(variant: Variant = "primary", className?: string) 
   return clsx(
     "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60",
     variant === "primary"
-      ? "bg-brand text-white shadow-sm hover:bg-brand-dark focus-visible:outline-brand"
-      : "border border-brand bg-white text-brand hover:bg-brand/10 focus-visible:outline-brand",
+      ? "bg-brand text-slate-900 shadow-sm hover:bg-brand-dark focus-visible:outline-brand"
+      : "border border-slate-200 bg-white text-slate-900 hover:border-brand focus-visible:outline-brand",
     className
   );
 }

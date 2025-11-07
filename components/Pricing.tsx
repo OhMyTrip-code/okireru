@@ -1,42 +1,52 @@
 import { Container } from "@/components/ui/Container";
 
+const perks = [
+  "目標達成で月額全額キャッシュバック",
+  "毎日100円のリワードで習慣化",
+  "途中解約はいつでもOK"
+];
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative overflow-hidden bg-gradient-to-br from-brand/5 via-blue-50/30 to-white py-20 sm:py-28">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-brand/10 blur-3xl"></div>
-        <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl"></div>
-      </div>
-      <Container className="relative">
+    <section id="pricing" className="border-y border-slate-100 bg-white py-20 sm:py-28">
+      <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center justify-center rounded-full bg-brand/10 px-6 py-2 text-sm font-semibold text-brand mb-6">
-            Pricing
-          </div>
-          <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl">
-            月額 <span className="text-brand">¥3,000</span>
-            <br />
-            成功すれば実質無料
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-slate-400">Pricing</p>
+          <h2 className="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">
+            月額 <span className="text-brand-dark">¥3,000</span>
+            <br className="hidden sm:block" />
+            成功するたびに自分へ還元
           </h2>
-          <p className="mt-8 text-lg leading-relaxed text-slate-600">
-            1日成功=100円を月末にキャッシュバック。<br />
-            30日成功なら実質無料です。
+          <p className="mt-6 text-base leading-7 text-slate-600">
+            早起きが続いた日数分だけキャッシュバック。全ての成功日が月末にまとめてAmazonギフトカードで届きます。
           </p>
-          <div className="mt-12 relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand to-blue-500 rounded-3xl blur opacity-25"></div>
-            <div className="relative rounded-2xl border-2 border-brand/20 bg-white p-8 shadow-xl">
-              <div className="flex items-center justify-center mb-4">
-                <div className="rounded-full bg-gradient-to-br from-brand to-blue-500 p-4 shadow-lg">
-                  <svg viewBox="0 0 24 24" className="w-8 h-8 text-white">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor" />
-                  </svg>
-                </div>
+        </div>
+        <div className="mx-auto mt-12 max-w-2xl rounded-3xl border border-slate-200 bg-slate-50/70 p-10 text-left shadow-sm">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">monthly</span>
+              <div className="mt-3 flex items-baseline gap-2">
+                <span className="text-4xl font-bold text-slate-900">¥3,000</span>
+                <span className="text-sm text-slate-500">/ 月</span>
               </div>
-              <p className="text-base text-slate-700">
-                失敗すればお金が減る。成功すれば返ってくる。<br />
-                この仕組みで、朝起きるしかなくなります。
-              </p>
             </div>
+            <span className="rounded-full border border-brand/40 px-4 py-1 text-xs font-semibold text-brand-dark">
+              成功日 × ¥100 キャッシュバック
+            </span>
           </div>
+          <ul className="mt-8 space-y-3 text-sm text-slate-600">
+            {perks.map((perk) => (
+              <li key={perk} className="flex items-start gap-2">
+                <span aria-hidden="true" className="mt-0.5 text-brand-dark">
+                  ●
+                </span>
+                <span>{perk}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-xs text-slate-500">
+            * キャッシュバックは前月分を翌月初旬に送付します。未使用の期間がある場合は日割りで返金します。
+          </p>
         </div>
       </Container>
     </section>

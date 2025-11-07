@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico"
   },
-  themeColor: "#F97316"
+  themeColor: "#FFC93A"
 };
 
 export default function RootLayout({
@@ -60,7 +60,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={`${notoSans.variable} bg-slate-50 text-slate-900`}>
+      <body className={`${notoSans.variable} bg-white text-slate-900`}>
         <a href="#main-content" className="skip-link">
           メインコンテンツへスキップ
         </a>

@@ -2,54 +2,20 @@ import { Container } from "@/components/ui/Container";
 
 const steps = [
   {
-    title: "登録する",
-    description: "アプリをダウンロードし、起床時刻を設定します。",
-    illustration: (
-      <div className="relative">
-        <div className="absolute -inset-4 rounded-full bg-blue-500/20 blur-xl"></div>
-        <div className="relative rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 shadow-xl">
-          <div className="space-y-2">
-            <div className="h-2 w-full rounded bg-white/30"></div>
-            <div className="h-8 w-3/4 rounded bg-white"></div>
-            <div className="h-2 w-1/2 rounded bg-white/30"></div>
-          </div>
-        </div>
-      </div>
-    )
+    title: "事前登録",
+    description: "アプリを予約し、目標の起床時間とベッドサイドのバーコードを登録します。"
   },
   {
-    title: "スキャンする",
-    description: "アラームが鳴ったら、バーコードをスキャンします。",
-    illustration: (
-      <div className="relative">
-        <div className="absolute -inset-4 rounded-full bg-green-500/20 blur-xl"></div>
-        <div className="relative rounded-2xl bg-gradient-to-br from-green-500 to-green-600 p-6 shadow-xl">
-          <svg viewBox="0 0 24 24" className="w-full h-16 text-white">
-            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-            <rect x="7" y="7" width="3" height="3" fill="currentColor" />
-            <rect x="14" y="7" width="3" height="3" fill="currentColor" />
-            <rect x="7" y="14" width="3" height="3" fill="currentColor" />
-            <rect x="14" y="14" width="3" height="3" fill="currentColor" />
-          </svg>
-        </div>
-      </div>
-    )
+    title: "アラーム",
+    description: "設定時刻になるとアラームと通知が鳴動。ベッドから離れないと止められません。"
   },
   {
-    title: "続ける",
-    description: "成功すればキャッシュバック。習慣化します。",
-    illustration: (
-      <div className="relative">
-        <div className="absolute -inset-4 rounded-full bg-brand/20 blur-xl"></div>
-        <div className="relative rounded-2xl bg-gradient-to-br from-brand to-blue-600 p-6 shadow-xl">
-          <div className="flex items-center justify-center">
-            <svg viewBox="0 0 24 24" className="w-16 h-16 text-white">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    )
+    title: "スキャン",
+    description: "登録したバーコードを5分以内にスキャン。動いていることが証明され、アラームが静まります。"
+  },
+  {
+    title: "キャッシュバック",
+    description: "成功した日数×100円を月末に還元。継続するほど自己投資が返ってきます。"
   }
 ];
 
@@ -57,36 +23,27 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-white py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center rounded-full bg-brand/10 px-6 py-2 text-sm font-semibold text-brand mb-6">
-              How it works
-            </div>
-            <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl">
-              使い方はとてもシンプル
-            </h2>
-          </div>
-          <div className="mt-16 grid gap-12 md:grid-cols-3">
+        <div className="mx-auto max-w-4xl">
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-slate-400">Process</p>
+          <h2 className="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">
+            起床習慣を支える、4つのリズム
+          </h2>
+          <p className="mt-4 text-base leading-7 text-slate-600">
+            毎朝のテンション任せではなく、仕組みで動く起床体験をデザインしました。最初の登録からキャッシュバックまで一連の流れが一本の線でつながっています。
+          </p>
+          <ol className="relative mt-12 space-y-10 border-l border-slate-200 pl-8">
             {steps.map((step, index) => (
-              <div key={step.title} className="relative">
-                {index < steps.length - 1 && (
-                  <div className="absolute -right-6 top-12 hidden h-0.5 w-12 bg-gradient-to-r from-brand to-transparent md:block"></div>
-                )}
-                <div className="space-y-6 text-center">
-                  <div className="mx-auto">
-                    {step.illustration}
-                  </div>
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand text-xl font-bold text-white shadow-lg">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900">{step.title}</h3>
-                    <p className="mt-2 text-base leading-relaxed text-slate-600">{step.description}</p>
-                  </div>
+              <li key={step.title} className="relative">
+                <span className="absolute -left-[1.5rem] flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-600">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="ml-8 space-y-2">
+                  <h3 className="text-xl font-semibold text-slate-900">{step.title}</h3>
+                  <p className="text-sm leading-7 text-slate-600">{step.description}</p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </Container>
     </section>
