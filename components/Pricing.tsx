@@ -13,9 +13,7 @@ export default function Pricing() {
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-medium uppercase tracking-[0.25em] text-slate-400">Pricing</p>
           <h2 className="mt-3 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl">
-            月額 <span className="text-brand-dark">¥3,000</span>
-            <br className="hidden sm:block" />
-            成功するたびに自分へ還元
+            さあ3,000円で朝起きれる未来の自分へ投資しよう
           </h2>
           <p className="mt-6 text-base leading-7 text-slate-600">
             早起きが続いた日数分だけキャッシュバック。全ての成功日が月末にまとめてAmazonギフトカードで届きます。
